@@ -1,0 +1,292 @@
+/*
+ * Ares OS — Tactical HUD Theme (Santa Bárbara Prototype v5)
+ * Activate by adding class "ares-tactical" to <body>.
+ * Keyboard shortcut: Ctrl+Shift+T (see TACTICAL_THEME.md)
+ *
+ * Color palette:
+ *   Background:     #050505 (deep black)
+ *   Primary text:   #FFB300 (military amber)
+ *   Alert (danger): #FF1744 (red alert)
+ *   Safe/nominal:   #33691E (muted military green)
+ *   Accent:         #00E5FF (cyan — targeting data)
+ *   Dim:            #1A1A1A (panel backgrounds)
+ *   Border:         #2E2E2E (grid lines)
+ */
+
+/* ============================================================
+   IMPORT TACTICAL MONOSPACE FONT
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+/* ============================================================
+   ROOT VARIABLES — override only when body has .ares-tactical
+   ============================================================ */
+body.ares-tactical {
+    --at-bg:          #050505;
+    --at-bg-panel:    #0A0A0A;
+    --at-bg-elevated: #111111;
+    --at-amber:       #FFB300;
+    --at-amber-dim:   #7A5C00;
+    --at-red:         #FF1744;
+    --at-red-dim:     #7B0020;
+    --at-green:       #33691E;
+    --at-green-bright:#69F0AE;
+    --at-cyan:        #00E5FF;
+    --at-border:      #2E2E2E;
+    --at-font:        'Share Tech Mono', 'Courier New', monospace;
+    --at-scan-speed:  4s;
+
+    background-color: var(--at-bg) !important;
+    color:            var(--at-amber) !important;
+    font-family:      var(--at-font) !important;
+}
+
+/* ============================================================
+   GLOBAL OVERRIDES
+   ============================================================ */
+body.ares-tactical *,
+body.ares-tactical *::before,
+body.ares-tactical *::after {
+    font-family: var(--at-font) !important;
+    border-color: var(--at-border) !important;
+    box-sizing: border-box;
+}
+
+body.ares-tactical a,
+body.ares-tactical a:visited {
+    color: var(--at-cyan) !important;
+    text-decoration: none;
+}
+
+/* MUI Paper / Card surfaces */
+body.ares-tactical .MuiPaper-root {
+    background-color: var(--at-bg-panel) !important;
+    color:            var(--at-amber) !important;
+    border: 1px solid var(--at-border) !important;
+}
+
+/* MUI AppBar */
+body.ares-tactical .MuiAppBar-root {
+    background-color: #070707 !important;
+    border-bottom: 2px solid var(--at-amber-dim) !important;
+    color: var(--at-amber) !important;
+}
+
+/* MUI Drawer / Sidebar */
+body.ares-tactical .MuiDrawer-paper {
+    background-color: #030303 !important;
+    border-right: 1px solid var(--at-amber-dim) !important;
+    color: var(--at-amber) !important;
+}
+
+/* MUI List items (nav) */
+body.ares-tactical .MuiListItemButton-root:hover {
+    background-color: rgba(255, 179, 0, 0.08) !important;
+}
+body.ares-tactical .MuiListItemButton-root.Mui-selected {
+    background-color: rgba(255, 179, 0, 0.15) !important;
+    border-left: 3px solid var(--at-amber) !important;
+}
+
+/* Typography */
+body.ares-tactical .MuiTypography-root {
+    color: var(--at-amber) !important;
+}
+body.ares-tactical .MuiTypography-caption {
+    color: var(--at-amber-dim) !important;
+}
+
+/* Buttons */
+body.ares-tactical .MuiButton-containedPrimary {
+    background-color: var(--at-amber-dim) !important;
+    color: var(--at-amber) !important;
+    border: 1px solid var(--at-amber) !important;
+}
+body.ares-tactical .MuiButton-containedError,
+body.ares-tactical .MuiButton-containedWarning {
+    background-color: var(--at-red-dim) !important;
+    color: var(--at-red) !important;
+    border: 1px solid var(--at-red) !important;
+}
+body.ares-tactical .MuiButton-outlined {
+    color: var(--at-amber) !important;
+    border-color: var(--at-amber) !important;
+}
+
+/* Chips */
+body.ares-tactical .MuiChip-root {
+    background-color: rgba(255, 179, 0, 0.10) !important;
+    color: var(--at-amber) !important;
+    border-color: var(--at-amber-dim) !important;
+    font-family: var(--at-font) !important;
+}
+body.ares-tactical .MuiChip-colorError {
+    background-color: rgba(255, 23, 68, 0.15) !important;
+    color: var(--at-red) !important;
+    border-color: var(--at-red) !important;
+}
+
+/* Icons */
+body.ares-tactical .MuiSvgIcon-root {
+    color: var(--at-amber) !important;
+    fill: var(--at-amber) !important;
+}
+
+/* Divider */
+body.ares-tactical .MuiDivider-root {
+    border-color: var(--at-border) !important;
+}
+
+/* Input fields */
+body.ares-tactical .MuiInputBase-root {
+    background-color: #0A0A0A !important;
+    color: var(--at-amber) !important;
+}
+body.ares-tactical .MuiOutlinedInput-notchedOutline {
+    border-color: var(--at-amber-dim) !important;
+}
+body.ares-tactical .MuiInputLabel-root {
+    color: var(--at-amber-dim) !important;
+}
+
+/* Tables */
+body.ares-tactical .MuiTableCell-root {
+    background-color: var(--at-bg-panel) !important;
+    color: var(--at-amber) !important;
+    border-bottom: 1px solid var(--at-border) !important;
+}
+body.ares-tactical .MuiTableRow-root:hover .MuiTableCell-root {
+    background-color: rgba(255, 179, 0, 0.05) !important;
+}
+
+/* Scrollbars */
+body.ares-tactical ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+}
+body.ares-tactical ::-webkit-scrollbar-track {
+    background: #0A0A0A;
+}
+body.ares-tactical ::-webkit-scrollbar-thumb {
+    background: var(--at-amber-dim);
+    border-radius: 2px;
+}
+
+/* ============================================================
+   SATELLITE TRACKING PANEL — HUD REDESIGN
+   ============================================================ */
+
+/* Tracking panel wrapper */
+body.ares-tactical .tracking-panel,
+body.ares-tactical [class*="tracking"] {
+    position: relative;
+    background: var(--at-bg-panel) !important;
+    border: 1px solid var(--at-amber-dim) !important;
+}
+
+/* Artificial horizon lines (decorative overlay) */
+body.ares-tactical .tracking-panel::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background:
+        linear-gradient(transparent 49.5%, rgba(255,179,0,0.15) 49.5%, rgba(255,179,0,0.15) 50.5%, transparent 50.5%),
+        linear-gradient(90deg, transparent 49.5%, rgba(255,179,0,0.08) 49.5%, rgba(255,179,0,0.08) 50.5%, transparent 50.5%);
+    border-radius: inherit;
+}
+
+/* Floating data elements (az/el/doppler values) */
+body.ares-tactical [class*="az"],
+body.ares-tactical [class*="el"],
+body.ares-tactical [class*="doppler"],
+body.ares-tactical [class*="elevation"],
+body.ares-tactical [class*="azimuth"] {
+    color: var(--at-cyan) !important;
+    font-size: 0.95rem !important;
+    letter-spacing: 0.1em;
+}
+
+/* Signal strength bars — analog meter style */
+body.ares-tactical [class*="signal"],
+body.ares-tactical [class*="snr"],
+body.ares-tactical .MuiLinearProgress-root {
+    background-color: #1A1A1A !important;
+    border: 1px solid var(--at-border) !important;
+    height: 6px !important;
+    border-radius: 0 !important;
+}
+body.ares-tactical .MuiLinearProgress-bar {
+    background: linear-gradient(90deg, var(--at-green) 0%, var(--at-amber) 60%, var(--at-red) 100%) !important;
+    border-radius: 0 !important;
+}
+
+/* Waterfall canvas container */
+body.ares-tactical [class*="waterfall"] {
+    border: 1px solid var(--at-amber-dim) !important;
+    filter: saturate(0.6) brightness(0.9) sepia(0.2);
+}
+
+/* ============================================================
+   CRT SCAN LINE OVERLAY (subtle, decorative)
+   ============================================================ */
+body.ares-tactical::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.08) 2px,
+        rgba(0, 0, 0, 0.08) 4px
+    );
+    animation: scanlines var(--at-scan-speed) linear infinite;
+}
+
+@keyframes scanlines {
+    0%   { background-position: 0 0; }
+    100% { background-position: 0 100px; }
+}
+
+/* ============================================================
+   SANTA BÁRBARA SIGINT PANEL — TACTICAL COLORS
+   ============================================================ */
+body.ares-tactical .sb-intel-emergency {
+    border-left-color: var(--at-red) !important;
+    background: rgba(255, 23, 68, 0.10) !important;
+    animation: alert-pulse 1.2s ease-in-out infinite;
+}
+
+body.ares-tactical .sb-intel-mgrs {
+    border-left-color: var(--at-amber) !important;
+    background: rgba(255, 179, 0, 0.08) !important;
+}
+
+body.ares-tactical .sb-intel-fire {
+    border-left-color: #FF8C00 !important;
+    background: rgba(255, 140, 0, 0.08) !important;
+}
+
+@keyframes alert-pulse {
+    0%, 100% { box-shadow: 0 0 4px rgba(255, 23, 68, 0.4); }
+    50%       { box-shadow: 0 0 12px rgba(255, 23, 68, 0.8); }
+}
+
+/* ============================================================
+   UTILITY — ARES TACTICAL BADGE
+   ============================================================ */
+body.ares-tactical .ares-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border: 1px solid var(--at-amber);
+    color: var(--at-amber);
+    font-family: var(--at-font);
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    background: rgba(255, 179, 0, 0.08);
+}

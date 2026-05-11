@@ -1,0 +1,27 @@
+# Node
+ground-station/frontend/node_modules/
+ground-station/frontend/.npm/
+
+# Python caches
+ground-station/backend/**/__pycache__/
+ground-station/backend/**/*.pyc
+ground-station/backend/**/*.pyo
+
+# Data / recordings / generated
+ground-station/backend/data/
+ground-station/backend/images/satellites/*.png
+ground-station/backend/images/bodies/*.png
+ground-station/backend/images/missions/*.png
+ground-station/tmp/
+
+# Database
+ground-station/backend/*.db
+ground-station/backend/*.sqlite
+
+# Logs (except the directory placeholder)
+ground-station/backend/logs/*.log
+ground-station/backend/logs/*.log.*
+
+# Nested git internals (safety)
+ground-station/.git/
+ground-station/.git_bak/
